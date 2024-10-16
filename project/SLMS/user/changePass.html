@@ -1,7 +1,3 @@
-<?php
-session_start();
-include('../../control/user/suggFeed.php');
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,22 +7,11 @@ include('../../control/user/suggFeed.php');
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../styles/style.css">
     <link rel="icon" type="image/png" href="../icons/stcLogo.png">
-    <title>Feedback</title>
+    <title>Password</title>
     <script>
-    // JavaScript function to update character count
-    function updateCharCount() {
-        const textarea = document.getElementById('exampleFormControlTextarea1');
-        const charCount = document.getElementById('charCount');
-        const maxLength = textarea.maxLength;
-        const currentLength = textarea.value.length;
-
-        charCount.textContent = `${currentLength}/${maxLength}`;
-    }
-
-    // Function to confirm logout
     function confirmLogout() {
         if (confirm("Are you sure you want to log out?")) {
-            window.location.href = 'logout.php';
+            window.location.href = '../index.html';
         }
     }
     </script>
@@ -44,15 +29,15 @@ include('../../control/user/suggFeed.php');
                         <path
                             d="M7.068.727c.243-.97 1.62-.97 1.864 0l.071.286a.96.96 0 0 0 1.622.434l.205-.211c.695-.719 1.888-.03 1.613.931l-.08.284a.96.96 0 0 0 1.187 1.187l.283-.081c.96-.275 1.65.918.931 1.613l-.211.205a.96.96 0 0 0 .434 1.622l.286.071c.97.243.97 1.62 0 1.864l-.286.071a.96.96 0 0 0-.434 1.622l.211.205c.719.695.03 1.888-.931 1.613l-.284-.08a.96.96 0 0 0-1.187 1.187l.081.283c.275.96-.918 1.65-1.613.931l-.205-.211a.96.96 0 0 0-1.622.434l-.071.286c-.243.97-1.62.97-1.864 0l-.071-.286a.96.96 0 0 0-1.622-.434l-.205.211c-.695.719-1.888.03-1.613-.931l.08-.284a.96.96 0 0 0-1.186-1.187l-.284.081c-.96.275-1.65-.918-.931-1.613l.211-.205a.96.96 0 0 0-.434-1.622l-.286-.071c-.97-.243-.97-1.62 0-1.864l.286-.071a.96.96 0 0 0 .434-1.622l-.211-.205c-.719-.695-.03-1.888.931-1.613l.284.08a.96.96 0 0 0 1.187-1.186l-.081-.284c-.275-.96.918-1.65 1.613-.931l.205.211a.96.96 0 0 0 1.622-.434zM12.973 8.5H8.25l-2.834 3.779A4.998 4.998 0 0 0 12.973 8.5m0-1a4.998 4.998 0 0 0-7.557-3.779l2.834 3.78zM5.048 3.967l-.087.065zm-.431.355A4.98 4.98 0 0 0 3.002 8c0 1.455.622 2.765 1.615 3.678L7.375 8zm.344 7.646.087.065z" />
                     </svg>
-                    <strong class="text-white">STCTI Library MS</strong>
+                    <strong class="text-white">School Library MS</strong>
                 </div>
 
             </div>
             <div class="card-body border-end border-secondary">
 
-                <ul class="fs-5 nav nav-pills flex-column mb-auto">
+                <ul class="fs-5 nav nav-pills flex-column mb-auto vh-100">
                     <li class="nav-item">
-                        <a href="searchBook.php" class="nav-link text-white" aria-current="page">
+                        <a href="searchBook.html" class="nav-link text-white" aria-current="page">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                 class="bi bi-house" viewBox="0 0 16 16">
                                 <path
@@ -62,7 +47,7 @@ include('../../control/user/suggFeed.php');
                         </a>
                     </li>
                     <li>
-                        <a href="requestStatus.php" class="nav-link text-white">
+                        <a href="requestStatus.html" class="nav-link text-white">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                 class="bi bi-list-stars" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd"
@@ -74,7 +59,7 @@ include('../../control/user/suggFeed.php');
                         </a>
                     </li>
                     <li>
-                        <a href="borrowedBook.php" class="nav-link text-white">
+                        <a href="borrowedBook.html" class="nav-link text-white">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                 class="bi bi-list-stars" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd"
@@ -86,7 +71,7 @@ include('../../control/user/suggFeed.php');
                         </a>
                     </li>
                     <li>
-                        <a href="records.php" class="nav-link text-white">
+                        <a href="records.html" class="nav-link text-white">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                 class="bi bi-send" viewBox="0 0 16 16">
                                 <path
@@ -96,7 +81,7 @@ include('../../control/user/suggFeed.php');
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="nav-link active">
+                        <a href="suggFeed.html" class="nav-link text-white">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                 class="bi bi-pencil-square" viewBox="0 0 16 16">
                                 <path
@@ -124,10 +109,10 @@ include('../../control/user/suggFeed.php');
                         <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
                             id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                             <img src="../icons/stcLogo.png" alt="" width="60" height="55" class="rounded-circle me-2">
-                            <strong class="fs-4"><?php echo htmlspecialchars($_SESSION['user']); ?></strong>
+                            <strong class="fs-4">Student Name</strong>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-white text-small shadow" aria-labelledby="dropdownUser1">
-                            <li><a class="dropdown-item" href="changePass.php">Change Password</a></li>
+                            <li><a class="dropdown-item" href="changePass.html">Change Password</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
@@ -140,25 +125,33 @@ include('../../control/user/suggFeed.php');
                 </div>
 
                 <div class="card-body mainDisplay">
-                    <div class="text-center mb-5">
-                        <h1>Suggestions
-                        / Feedbacks</h1>
-                    </div>
-                    <form class="feedHeight text-center" action="suggFeed.php" method="post">
-                        <div class="mb-3">
-                            
-                            <textarea class="shadow form-control textArea fs-5" name="suggFeed"
-                                id="exampleFormControlTextarea1" rows="3" maxlength="255" oninput="updateCharCount()"
-                                placeholder="Suggestions or Feedbacks..." required></textarea>
-                            <!-- Character Count Display -->
-                            <div id="charCount" class="form-text text-end text-dark">0/255</div>
-                        </div>
-                        <button type="submit" name="submit" class="btn btn-primary fs-5">Send</button>
-                    </form>
 
-                </div>
+                <div class="text-dark m-5" id="registrationForm" method="post">
+                    <div class="text-center">
+                        <h1>Change Pass</h1>
+                    </div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Current
+                                Password</label>
+                            <input type="password" name="curPass" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">New
+                                Password</label>
+                            <input type="password" name="newPass" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Confirm
+                                Password</label>
+                            <input type="password" name="conPass" class="form-control" required>
+                        </div>
+
+                        <button disabled type="submit" name="submit" class="btn btn-primary">Change</button>
+                    </div>
+
             </div>
         </div>
+    </div>
 
     </div>
 
