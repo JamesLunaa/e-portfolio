@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="icon" type="image/png" href="../icons/logo.png">
+    <title>Manage File</title>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+
+    <style>
+        .mainDisplay {
+            background-color: #f1eaea !important;
+        }
+        .welcome-text {
+            color: #14348f !important;
+        }
+    </style>
+    
+    
+</head>
+
+<body>
+    <div id="loading-screen">
+        <div class="loader"></div>
+    </div>
+    <div class="mainCont d-flex text-white">
+
+        <div id="admin-sidebar" class="card cardBorder d-flex flex-column flex-shrink-0"
+        style="width: 280px; min-height: 100vh; background-color: #14348f;">
+        <div class="card-header menuHead">
+            <div class="fs-4 text-center mt-1">
+                <div class="text-center">
+                    <img src="../icons/logo.png" alt="" width="110" height="110"
+                        class="">
+                </div>
+            </div>
+    
+        </div>
+        <div class="card-body border-end border-secondary">
+    
+            <ul class="fs-5 nav nav-pills flex-column mb-auto vh-auto">
+                <li>
+                    <a href="adminMainDash.html"
+                        class="nav-link text-white">
+                        <img src="../icons/3.png" width="55" height="40" alt="">
+                        Dashboard
+                    </a>
+                </li>
+                
+    
+                <li>
+                        <a href="" 
+                            class="nav-link text-white" 
+                            data-bs-toggle="collapse" 
+                            data-bs-target="#personal-space-collapse" 
+                            aria-expanded="true">
+                            <img src="../icons/4.png" width="55" height="40" alt="">
+                            Personal Space
+                        </a>
+                        <div class="collapse show" id="personal-space-collapse">
+                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                            <li>
+                                <a href="adminInbox.html" class="nav-link text-white rounded">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+                                        <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"/>
+                                    </svg>                        
+                                    Inbox
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav-link active text-white rounded">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+                                    </svg>                        
+                                    Compose
+                                </a>
+                            </li>
+                            <li>
+                                <a href="adminHistory.html" class="nav-link {{ Route::currentRouteName() == 'admin.history' ? 'active' : '' }} text-white rounded">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list-columns-reverse" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M0 .5A.5.5 0 0 1 .5 0h2a.5.5 0 0 1 0 1h-2A.5.5 0 0 1 0 .5m4 0a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1h-10A.5.5 0 0 1 4 .5m-4 2A.5.5 0 0 1 .5 2h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5m4 0a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m-4 2A.5.5 0 0 1 .5 4h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5m4 0a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5m-4 2A.5.5 0 0 1 .5 6h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5m4 0a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 0 1h-8a.5.5 0 0 1-.5-.5m-4 2A.5.5 0 0 1 .5 8h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5m4 0a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 0 1h-8a.5.5 0 0 1-.5-.5m-4 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5m4 0a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1h-10a.5.5 0 0 1-.5-.5m-4 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5m4 0a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5m-4 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5m4 0a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5"/>
+                                      </svg>                      
+                                    History
+                                </a>
+                            </li>
+                        </ul>
+                        <hr style="border: 1px solid rgb(253, 253, 253);">
+                    </div>
+                </li>
+                <li>
+                    <a href="{{ route('admin.fileList') }}"
+                        class="nav-link {{ Route::currentRouteName() == 'admin.fileList' || Route::currentRouteName() == 'admin.fileListSearch' ? 'active' : '' }} text-white">
+                        <img src="../icons/8.png" width="55" height="40" alt="">
+                        File List
+                    </a>
+                </li>
+    
+                <li class="nav-item">
+                    <a href="{{ route('admin.dashboard') }}"
+                        class="nav-link {{ Route::currentRouteName() == 'admin.dashboard' ? 'active' : '' }} text-white"
+                        aria-current="page">
+                        <img src="../icons/Upload.png" width="55" height="40" alt="">
+                        Upload File
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('admin.removedFileList') }}"
+                        class="nav-link {{ Route::currentRouteName() == 'admin.removedFileList' || Route::currentRouteName() == 'admin.removedFileListSearch' ? 'active' : '' }} text-white">
+                        <img src="../icons/Removed.png" width="55" height="40" alt="">
+    
+                        Removed Files
+                    </a>
+                </li>
+                <li>
+                    <a href="" 
+                        class="nav-link text-white" 
+                        data-bs-toggle="collapse" 
+                        data-bs-target="#manage-users-collapse" 
+                        aria-expanded="{{ in_array(Route::currentRouteName(), ['admin.viewAddUser', 'admin.userList', 'admin.inactiveList', 'admin.searchUser']) ? 'true' : 'false' }}">
+                        <img src="../icons/11.png" width="50" height="40" alt="">
+                        Manage Users
+                    </a>
+                    <div class="collapse {{ in_array(Route::currentRouteName(), ['admin.viewAddUser', 'admin.userList', 'admin.inactiveList', 'admin.searchUser']) ? 'show' : '' }}" id="manage-users-collapse">
+    
+                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                            <li>
+                                <a href="{{ route('admin.viewAddUser') }}" class="nav-link {{ Route::currentRouteName() == 'admin.viewAddUser' ? 'active' : '' }} text-white rounded">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill-add" viewBox="0 0 16 16">
+                                        <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7m.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0m-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                                        <path d="M2 13c0 1 1 1 1 1h5.256A4.5 4.5 0 0 1 8 12.5a4.5 4.5 0 0 1 1.544-3.393Q8.844 9.002 8 9c-5 0-6 3-6 4"/>
+                                    </svg>                       
+                                    Register User
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('admin.userList') }}" class="nav-link {{ Route::currentRouteName() == 'admin.userList' ? 'active' : '' }} text-white rounded">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill-check" viewBox="0 0 16 16">
+                                        <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7m1.679-4.493-1.335 2.226a.75.75 0 0 1-1.174.144l-.774-.773a.5.5 0 0 1 .708-.708l.547.548 1.17-1.951a.5.5 0 1 1 .858.514M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                                        <path d="M2 13c0 1 1 1 1 1h5.256A4.5 4.5 0 0 1 8 12.5a4.5 4.5 0 0 1 1.544-3.393Q8.844 9.002 8 9c-5 0-6 3-6 4"/>
+                                    </svg>                      
+                                    User List
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('admin.inactiveList') }}" class="nav-link {{ Route::currentRouteName() == 'admin.inactiveList' ? 'active' : '' }} text-white rounded">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill-exclamation" viewBox="0 0 16 16">
+                                        <path d="M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0m-9 8c0 1 1 1 1 1h5.256A4.5 4.5 0 0 1 8 12.5a4.5 4.5 0 0 1 1.544-3.393Q8.844 9.002 8 9c-5 0-6 3-6 4"/>
+                                        <path d="M16 12.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0m-3.5-2a.5.5 0 0 0-.5.5v1.5a.5.5 0 0 0 1 0V11a.5.5 0 0 0-.5-.5m0 4a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1"/>
+                                    </svg>                        
+                                    Inactive Users
+                                </a>
+                            </li>
+                        </ul>
+                        <hr style="border: 1px solid rgb(253, 253, 253);">
+                    </div>
+                </li>
+                
+            </ul>
+        </div>
+        <div class="card-footer border-end border-secondary text-secondary text-center">
+            File Management System
+        </div>
+    
+    </div>
+
+        <!-- content here -->
+        <div class="d-flex min-vh-100" style="width: 200%;">
+
+            <div class="card min-vh-100 cardBorder" style="width: 200%;">
+
+                <div id="user-header" class="shadow-lg card-header" style="background-color: white">
+                    <div class="dropdown d-flex justify-content-between">
+                        <div class="d-flex align-items-center text-dark">
+                            <img src="../icons/Personal Space - Compose File.png" width="80" height="40" alt="">
+                            <strong class="fs-4 welcome-text"> Compose </strong>
+                        </div>
+                        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
+                            id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="../icons/logo.png" alt="" width="60" height="55" class="rounded-circle me-2">
+                            <strong class="fs-4 text-dark">Admin</strong>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-white text-small shadow" aria-labelledby="dropdownUser1">
+                            <li><button disabled class="dropdown-item" href="{{ route('admin.changePassword') }}">Change Password</button></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li>
+                                <form id="logout-form" action="" method="POST" class="d-none">
+                                    <a href="../../index.html" type="submit" class="dropdown-item"
+                                    onclick="return confirm('Are you sure you want to log out?')">
+                                    Sign out
+                                </a>                                    
+                                </form>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                
+                </div>
+                
+
+                <div class="card-body mainDisplay">
+
+                    <div class="container d-flex align-items-center justify-content-center">
+                        <div id="main-content" class="p-5 card pb-4 border shadow-lg" style="max-width: 50rem;">
+                            <!-- <div class="text-center">
+                                @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+    
+                            @if (session('success'))
+                                <div class="alert alert-success">{{ session('success') }}</div>
+                            @endif
+                                
+                            </div> -->
+                            <div>
+                                <form action="" class="row text-dark fs-4" method="post" enctype="multipart/form-data">
+                                    
+                                    <div class="col-md-6">
+                                        <label for="inputName" class="form-label welcome-text"><strong>Name</strong></label>
+                                        <input disabled type="text" class="fs-4 form-control " name="name" value="Admin" readonly>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="inputUserId" class="form-label welcome-text"><strong>User I.D</strong></label>
+                                        <input disabled type="text" class="fs-4 form-control " name="userId" value="User I.D" readonly>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="inputDate" class="form-label welcome-text"><strong>Date</strong></label>
+                                        <input disabled type="date" class="fs-4 form-control " name="date" value="mm/dd/yyyy" readonly>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label for="inputRecipient" class="form-label welcome-text"><strong>Recipient User ID</strong></label>
+                                        <input disabled type="text" id="inputRecipient" name="recipient" class="fs-4 form-control " placeholder="Enter Recipient's User ID" required>
+                                        <small id="userIdError" class="text-danger d-none">No user ID found</small>
+                                    </div>
+
+                                    <script>
+                                        document.querySelector("form").addEventListener("submit", function(event) {
+                                            event.preventDefault(); // Prevent form submission
+                                            let userIdInput = document.getElementById("inputRecipient").value;
+                                            let errorText = document.getElementById("userIdError");
+
+                                            // AJAX call to verify user ID
+                                            fetch(`/admin/check-user-id/${userIdInput}`)
+                                                .then(response => response.json())
+                                                .then(data => {
+                                                    if (data.exists) {
+                                                        errorText.classList.add("d-none");
+                                                        event.target.submit(); // Submit form if user exists
+                                                    } else {
+                                                        errorText.classList.remove("d-none");
+                                                    }
+                                                })
+                                                .catch(error => console.error("Error checking user ID:", error));
+                                        });
+                                    </script>
+
+                                    <div class="col-md-6">
+                                        <label for="title" class="form-label welcome-text"><strong>File Name</strong></label>
+                                        <input disabled type="text" name="title" class="fs-5 form-control" placeholder="Enter Title Here" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="title" class="form-label welcome-text"><strong>Action Needed</strong></label>
+                                        <select disabled name="actionNeeded" class="form-select fs-5" id="inputGroupSelect01" required>
+                                            <option value="" disabled selected>Choose...</option>
+                                            <option value="Signature">Signature</option>
+                                            <option value="Review" disabled>Review</option>
+                                            <option value="Approval" disabled>Approval</option>
+                                        </select>                                    
+                                    </div> 
+                                    <div class="mb-3">
+                                        <label for="file" class="form-label welcome-text"><strong>Choose a File</strong></label>
+                                        <input disabled name="file" type="file" class="form-control fs-5" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="description" class="form-label welcome-text"><strong>Short Description</strong></label>
+                                        <span id="charCount" class="form-text text-end text-secondary">0/300</span>
+                                        <textarea disabled class="form-control textArea fs-5" name="description" id="exampleFormControlTextarea1" maxlength="300"
+                                                  oninput="updateCharCount()" rows="3" placeholder="Enter File Description Here" required></textarea>
+                                    </div>
+                                    <div class="text-center">
+                                        <button disabled type="submit" class="btn btn-primary btn-lg"><strong>Send</strong></button>
+                                    </div>
+                                </form> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function updateCharCount() {
+            const textarea = document.getElementById('exampleFormControlTextarea1');
+            const charCount = document.getElementById('charCount');
+            const maxLength = textarea.maxLength;
+            const currentLength = textarea.value.length;
+
+            charCount.textContent = `${currentLength}/${maxLength}`;
+        }
+        // Hide success alert after 5 seconds
+        setTimeout(function() {
+            let successAlert = document.getElementById('success-alert');
+            if (successAlert) {
+                successAlert.style.display = 'none';
+            }
+        }, 4000); // 5000ms = 5 seconds
+
+        // Hide error alert after 5 seconds
+        setTimeout(function() {
+            let errorAlert = document.getElementById('error-alert');
+            if (errorAlert) {
+                errorAlert.style.display = 'none';
+            }
+        }, 4000); // 5000ms = 5 seconds
+        window.onload = function () {
+        setTimeout(function () {
+            document.getElementById("loading-screen").classList.add("hidden");
+        }, 200); // Small delay for smooth transition
+    };
+    </script>
+</body>
+
+</html>
