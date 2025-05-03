@@ -40,37 +40,38 @@
         </div>
         <div class="card-body border-end border-secondary">
     
-            <ul class="fs-5 nav nav-pills flex-column mb-auto vh-auto">
+            <ul class="fs-5 nav nav-pills flex-column mb-auto vh-100">
                 <li>
-                    <a href="adminMainDash.html"
-                        class="nav-link text-white">
+                    <a href="usersMainDash.html"
+                        class="nav-link {{ Route::currentRouteName() == 'user.main.dash' ? 'active' : '' }} text-white">
                         <img src="../icons/3.png" width="55" height="40" alt="">
                         Dashboard
                     </a>
                 </li>
                 
-    
                 <li>
-                        <a href="" 
-                            class="nav-link text-white" 
-                            data-bs-toggle="collapse" 
-                            data-bs-target="#personal-space-collapse" 
-                            aria-expanded="true">
-                            <img src="../icons/4.png" width="55" height="40" alt="">
-                            Personal Space
-                        </a>
-                        <div class="collapse " id="personal-space-collapse">
-                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <a href="" 
+                        class="{{ in_array(Route::currentRouteName(), ['user.compose', 'user.inbox', 'user.inboxSearch', 'user.history']) ? 'active' : '' }} align-items-center text-white nav-link" 
+                        data-bs-toggle="collapse" 
+                        data-bs-target="#home-collapse" 
+                        aria-expanded="{{ in_array(Route::currentRouteName(), ['user.compose', 'user.inbox', 'user.inboxSearch', 'user.history']) ? 'true' : 'false' }}">
+                
+                        <img src="../icons/4.png" width="55" height="40" alt="">
+                        Personal Space
+                    </a>
+                
+                    <div class="collapse {{ in_array(Route::currentRouteName(), ['user.compose', 'user.inbox', 'user.inboxSearch', 'user.history']) ? 'show' : '' }}" id="home-collapse">
+                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                             <li>
-                                <a href="adminInbox.html" class="nav-link text-white rounded">
+                                <a href="userInbox.html" class="nav-link {{ Route::currentRouteName() == 'user.inbox' ? 'active' : '' }} text-white rounded">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
                                         <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"/>
-                                    </svg>                        
+                                    </svg>                       
                                     Inbox
                                 </a>
                             </li>
                             <li>
-                                <a href="adminCompose.html" class="nav-link text-white rounded">
+                                <a href="userCompose.html" class="nav-link {{ Route::currentRouteName() == 'user.compose' ? 'active' : '' }} text-white rounded">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
                                         <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
                                         <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
@@ -79,10 +80,10 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="adminHistory.html" class="nav-link text-white rounded">
+                                <a href="userHistory.html" class="nav-link {{ Route::currentRouteName() == 'user.history' ? 'active' : '' }} text-white rounded">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list-columns-reverse" viewBox="0 0 16 16">
                                         <path fill-rule="evenodd" d="M0 .5A.5.5 0 0 1 .5 0h2a.5.5 0 0 1 0 1h-2A.5.5 0 0 1 0 .5m4 0a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1h-10A.5.5 0 0 1 4 .5m-4 2A.5.5 0 0 1 .5 2h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5m4 0a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m-4 2A.5.5 0 0 1 .5 4h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5m4 0a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5m-4 2A.5.5 0 0 1 .5 6h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5m4 0a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 0 1h-8a.5.5 0 0 1-.5-.5m-4 2A.5.5 0 0 1 .5 8h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5m4 0a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 0 1h-8a.5.5 0 0 1-.5-.5m-4 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5m4 0a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1h-10a.5.5 0 0 1-.5-.5m-4 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5m4 0a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5m-4 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5m4 0a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5"/>
-                                      </svg>                      
+                                      </svg>                         
                                     History
                                 </a>
                             </li>
@@ -91,16 +92,16 @@
                     </div>
                 </li>
                 <li>
-                    <a href="adminFileList.html"
-                        class="nav-link {{ Route::currentRouteName() == 'admin.fileList' || Route::currentRouteName() == 'admin.fileListSearch' ? 'active' : '' }} text-white">
+                    <a href="userFileList.html"
+                        class="nav-link {{ Route::currentRouteName() == 'user.fileList' || Route::currentRouteName() == 'user.fileListSearch' ? 'active' : '' }} text-white">
                         <img src="../icons/8.png" width="55" height="40" alt="">
                         File List
                     </a>
                 </li>
-    
+                
                 <li class="nav-item">
                     <a href="#"
-                        class="nav-link active {{ Route::currentRouteName() == 'admin.dashboard' ? 'active' : '' }} text-white"
+                        class="nav-link active {{ Route::currentRouteName() == 'user.dashboard' ? 'active' : '' }} text-white"
                         aria-current="page">
                         <img src="../icons/Upload.png" width="55" height="40" alt="">
                         Upload File
@@ -108,55 +109,13 @@
                 </li>
                 <li>
                     <a href="removedFiles.html"
-                        class="nav-link {{ Route::currentRouteName() == 'admin.removedFileList' || Route::currentRouteName() == 'admin.removedFileListSearch' ? 'active' : '' }} text-white">
+                        class="nav-link {{ Route::currentRouteName() == 'user.removedFileList' || Route::currentRouteName() == 'user.removedFileListSearch' ? 'active' : '' }} text-white">
                         <img src="../icons/Removed.png" width="55" height="40" alt="">
     
                         Removed Files
                     </a>
                 </li>
-                <li>
-                    <a href="" 
-                        class="nav-link text-white" 
-                        data-bs-toggle="collapse" 
-                        data-bs-target="#manage-users-collapse" 
-                        aria-expanded="{{ in_array(Route::currentRouteName(), ['admin.viewAddUser', 'admin.userList', 'admin.inactiveList', 'admin.searchUser']) ? 'true' : 'false' }}">
-                        <img src="../icons/11.png" width="50" height="40" alt="">
-                        Manage Users
-                    </a>
-                    <div class="collapse {{ in_array(Route::currentRouteName(), ['admin.viewAddUser', 'admin.userList', 'admin.inactiveList', 'admin.searchUser']) ? 'show' : '' }}" id="manage-users-collapse">
-    
-                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                            <li>
-                                <a href="adminAddUser.html" class="nav-link {{ Route::currentRouteName() == 'admin.viewAddUser' ? 'active' : '' }} text-white rounded">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill-add" viewBox="0 0 16 16">
-                                        <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7m.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0m-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
-                                        <path d="M2 13c0 1 1 1 1 1h5.256A4.5 4.5 0 0 1 8 12.5a4.5 4.5 0 0 1 1.544-3.393Q8.844 9.002 8 9c-5 0-6 3-6 4"/>
-                                    </svg>                       
-                                    Register User
-                                </a>
-                            </li>
-                            <li>
-                                <a href="userList.html" class="nav-link {{ Route::currentRouteName() == 'admin.userList' ? 'active' : '' }} text-white rounded">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill-check" viewBox="0 0 16 16">
-                                        <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7m1.679-4.493-1.335 2.226a.75.75 0 0 1-1.174.144l-.774-.773a.5.5 0 0 1 .708-.708l.547.548 1.17-1.951a.5.5 0 1 1 .858.514M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
-                                        <path d="M2 13c0 1 1 1 1 1h5.256A4.5 4.5 0 0 1 8 12.5a4.5 4.5 0 0 1 1.544-3.393Q8.844 9.002 8 9c-5 0-6 3-6 4"/>
-                                    </svg>                      
-                                    User List
-                                </a>
-                            </li>
-                            <li>
-                                <a href="inactiveList.html" class="nav-link {{ Route::currentRouteName() == 'admin.inactiveList' ? 'active' : '' }} text-white rounded">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill-exclamation" viewBox="0 0 16 16">
-                                        <path d="M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0m-9 8c0 1 1 1 1 1h5.256A4.5 4.5 0 0 1 8 12.5a4.5 4.5 0 0 1 1.544-3.393Q8.844 9.002 8 9c-5 0-6 3-6 4"/>
-                                        <path d="M16 12.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0m-3.5-2a.5.5 0 0 0-.5.5v1.5a.5.5 0 0 0 1 0V11a.5.5 0 0 0-.5-.5m0 4a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1"/>
-                                    </svg>                        
-                                    Inactive Users
-                                </a>
-                            </li>
-                        </ul>
-                        <hr style="border: 1px solid rgb(253, 253, 253);">
-                    </div>
-                </li>
+                
                 
             </ul>
         </div>
@@ -180,20 +139,19 @@
                         <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
                             id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                             <img src="../icons/logo.png" alt="" width="60" height="55" class="rounded-circle me-2">
-                            <strong class="fs-4 text-dark">Admin</strong>
+                            <strong class="fs-4 text-dark">User</strong>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-white text-small shadow" aria-labelledby="dropdownUser1">
-                            <li><button disabled class="dropdown-item" href="{{ route('admin.changePassword') }}">Change Password</button></li>
+                            <li><button disabled class="dropdown-item" href="{{ route('user.changePassword') }}">Change Password</button></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
                             <li>
                                 <form action="{{ route('logout') }}" method="POST">
-                                    
                                     <a href="../../index.html" type="submit" class="dropdown-item"
-                                    onclick="return confirm('Are you sure you want to log out?')">
-                                    Sign out
-                                </a> 
+                                        onclick="return confirm('Are you sure you want to log out?')">
+                                        Sign out
+                                    </a>
                                 </form>
                             </li>
                         </ul>
@@ -208,7 +166,7 @@
                         <div id="main-content" class="p-5 card pb-4 border shadow-lg" style="max-width: 50rem;">
                             
                             <div>
-                                <form action="{{ route('admin.upload') }}" class="row text-dark fs-4" method="post" enctype="multipart/form-data">
+                                <form action="{{ route('user.upload') }}" class="row text-dark fs-4" method="post" enctype="multipart/form-data">
                                     
                                     <div class="col-md-6">
                                         <label for="inputName" class="form-label welcome-text"><strong>Name</strong></label>
@@ -238,7 +196,7 @@
                                                   oninput="updateCharCount()" rows="3" placeholder="Enter File Description Here" required></textarea>
                                     </div>
                                     <div class="text-center">
-                                        <button disabled type="submit" class="btn btn-primary btn-lg">Upload</button>
+                                        <button disabled type="submit" class="btn btn-primary btn-lg"><strong>Upload</strong></button>
                                     </div>
                                 </form> 
                             </div>
@@ -276,6 +234,8 @@
                 errorAlert.style.display = 'none';
             }
         }, 4000); // 5000ms = 5 seconds
+    </script>
+    <script>
         window.onload = function () {
         setTimeout(function () {
             document.getElementById("loading-screen").classList.add("hidden");
