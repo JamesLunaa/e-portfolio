@@ -11765,3 +11765,8 @@ html {
   animation: breathe 2s ease-in-out infinite;
 }
 
+/* for certificates */
+.certs {
+  overflow-y: auto;
+  height: 700px;
+}
